@@ -1,8 +1,26 @@
+CREATE TABLE client(
+   client_id INT AUTO_INCREMENT,
+   client_name VARCHAR(255),
+   client_quantity INT,
+   client_email VARCHAR(255),
+   reservation_id INT NOT NULL,
+   PRIMARY KEY(client_id)
+);
+
+CREATE TABLE passenger(
+   passenger_id INT AUTO_INCREMENT,
+   passenger_name VARCHAR(255),
+   client_id INT NOT NULL,
+   PRIMARY KEY(passenger_id),
+   FOREIGN KEY(client_id) REFERENCES client(client_id)
+); 
+
 CREATE TABLE reservation(
    reservation_id INT AUTO_INCREMENT,
    reservation_date DATETIME,
    reservation_status BOOLEAN,
-   PRIMARY KEY(reservation_id)
+   PRIMARY KEY(reservation_id),
+   FOREIGN KEY(client_id) REFERENCES client(client_id)
 );
 
 CREATE TABLE stopover(
@@ -25,23 +43,6 @@ CREATE TABLE planet(
    FOREIGN KEY(city_id) REFERENCES city(city_id)
 );
 
-CREATE TABLE client(
-   client_id INT AUTO_INCREMENT,
-   client_name VARCHAR(255),
-   client_quantity INT,
-   client_email VARCHAR(255),
-   reservation_id INT NOT NULL,
-   PRIMARY KEY(client_id),
-   FOREIGN KEY(reservation_id) REFERENCES reservation(reservation_id)
-);
-
-CREATE TABLE passenger(
-   passenger_id INT AUTO_INCREMENT,
-   passenger_name VARCHAR(255),
-   client_id INT NOT NULL,
-   PRIMARY KEY(passenger_id),
-   FOREIGN KEY(client_id) REFERENCES client(client_id)
-);
 
 CREATE TABLE flight(
    flight_id INT AUTO_INCREMENT,
