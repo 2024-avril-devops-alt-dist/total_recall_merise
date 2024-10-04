@@ -1,0 +1,69 @@
+MERISE & conceptions
+
+Dictionnaire des données :
+
+Un dictionnaire des données est un document qui regroupe toutes les données à conserver dans la base de données (BDD).
+
+Il doit contenir plusieurs informations :
+    Code numérique : le nom technique du champ.
+    Description ou désignation : une explication de l'usage du champ.
+    Type et taille : le type de donnée (par exemple, int, varchar) et sa taille.
+
+MCD : Modèle Conceptuel de Données :
+
+Le MCD est une représentation abstraite de la structure d'une BDD. Il est utilisé pour modéliser la réalité métier.
+
+Il comprend un ensemble d'entités, leurs attributs, ainsi que leurs relations.
+Dans un MCD, la cardinalité est souvent représentée par des annotations sur les lignes qui connectent les entités. Nous avons :
+1:1 : Chaque instance d'une entité est liée à une seule instance d'une autre entité.
+1:N : Une instance d'une entité peut être liée à plusieurs instances d'une autre entité, mais une instance de la deuxième entité est liée à une seule instance de la première.
+N:M : Plusieurs instances d'une entité peuvent être liées à plusieurs instances d'une autre entité.
+La relation N:M est celle qui nécessite l'utilisation d'une table de jointure(ou table d’association ?) lorsque l'on passe du MCD au Modèle Logique de Données (MLD), afin de maintenir l'intégrité et la normalisation des données dans une base de données relationnelle.
+MLD : Modèle Logique de Données :
+
+Le MLD est un modèle plus détaillé et adapté au Système de Gestion de Bases de Données (SGBD).
+
+Pourquoi ? Grâce aux spécifications plus détaillées, telles que les tables et les clés, qui correspondent aux éléments manipulés par les SGBD.
+
+On ne parle plus d'entités mais de tables, les attributs deviennent des colonnes, et les relations entre tables sont définies par les clés primaires et étrangères.
+
+On parle donc de : tables, colonnes, clés, contraintes.
+
+MPD : Modèle Physique de Données :
+
+Le MPD est le niveau d'abstraction le plus bas.
+
+Le but est d'implémenter la BDD dans un SGBDR (Système de Gestion de Bases de Données Relationnelles) grâce au langage SQL et à ses instructions (ex : CREATE, DROP, ALTER, etc.).
+
+DIFFÉRENCE ENTRE UN SGBD ET UNE BDD :
+
+ BDD : Un ensemble d'informations structurées dans le but d'être facilement accessible. Elle est utilisée comme méthode de stockage, de gestion et de récupération d'informations.
+ SGBD : Un Système de Gestion de Bases de Données est un logiciel concret permettant de cacher la complexité des opérations et de la gestion de la BDD (ex : MySQL, PostgreSQL, etc.).
+
+Diagramme des séquences 
+
+def : est une représentation graphique des interactions entre les acteurs et le système selon un ordre chronologique
+Objectif
+Visualiser les interactions : Les diagrammes de séquence montrent comment les objets interagissent entre eux au fil du temps, ce qui est particulièrement utile pour comprendre le flux logique d'un scénario spécifique.
+Chronologie des Événements : Ils mettent l'accent sur l'ordre temporel des interactions, ce qui aide à identifier les dépendances et les séquences critiques dans un processus.
+Composants Essentiels
+Acteurs :
+Représentent les utilisateurs ou les systèmes externes qui interagissent avec le système. Ils sont souvent positionnés à la gauche du diagramme.
+Objets/Lifelines :
+Représentent les instances de classes qui participent à l'interaction. Chaque objet est représenté par une ligne verticale (ligne de vie) qui montre la durée de son existence pendant le scénario.
+Messages :
+Les messages sont représentés par des flèches horizontales entre les objets/lifelines. Ils indiquent la communication ou les appels de méthode entre les objets.
+Les types de messages incluent les appels synchrones (flèches pleines) et asynchrones (flèches avec une pointe ouverte).
+Activation Boxes :
+Représentent la période pendant laquelle un objet est actif ou contrôle le flux. Elles sont dessinées comme des rectangles étroits sur la ligne de vie.
+Retour de Messages :
+Les retours de messages sont souvent représentés par des flèches en pointillés pour indiquer la réponse ou le résultat d'un appel de méthode.
+Notes et Commentaires :
+Utilisez des notes pour ajouter des commentaires explicatifs ou des détails supplémentaires qui ne sont pas directement représentés par les interactions.
+BASE DOCUMENTAIRE :
+chaine youtube : amine abbaoui ( https://youtu.be/nofPrDERkhQ?feature=shared)
+https://www.univ-constantine2.dz/CoursOnLine/Benelhadj-Mohamed/co/Grain_3_1.html
+https://www.youtube.com/watch?v=fPm5NrvmXHc
+https://mbf-iut.i3s.unice.fr/doku.php?id=2017_2018:s2:td:td_sequences
+
+
